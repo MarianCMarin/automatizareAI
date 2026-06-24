@@ -75,12 +75,27 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
 .credibilitate__quote blockquote { font-size: 1.15rem; line-height: 1.7; font-style: italic; margin-bottom: 20px; }
 .credibilitate__quote cite { font-size: 0.85rem; color: var(--text-secondary); font-style: normal; font-family: var(--font-mono); }
 .credibilitate__photo { display: flex; flex-direction: column; align-items: center; gap: 24px; }
-.profile-img-wrap { width: 240px; height: 240px; border-radius: 50%; overflow: hidden; border: 4px solid var(--accent-blue); box-shadow: 0 8px 32px rgba(59,130,246,0.25); flex-shrink: 0; }
-.profile-img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-.credibilitate__photo .credibilitate__quote { width: 100%; }
+.profile-img-wrap {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--accent-blue);
+  box-shadow: 0 8px 32px rgba(59,130,246,0.25);
+  flex-shrink: 0;
+  display: block;
+  background: #ffffff;
+  opacity: 1 !important;
+}
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
 @media (max-width: 768px) { .profile-img-wrap { width: 160px; height: 160px; } }
-
-    .proces { padding: 100px 24px; }
+.proces { padding: 100px 24px; }
 .proces__steps { display: flex; flex-direction: column; max-width: 720px; }
 .pas { display: flex; gap: 28px; align-items: flex-start; padding: 32px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.2s; }
 .pas:hover { border-color: var(--accent-blue); }
@@ -130,12 +145,11 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
   .problema__grid, .servicii__grid, .credibilitate__inner, .form__row { grid-template-columns: 1fr; }
   .credibilitate__inner { gap: 40px; }
 }
-  
-    .footer__anpc { display: flex; align-items: center; justify-content: center; gap: 32px; padding: 24px 0 16px; border-top: 1px solid var(--border); flex-wrap: wrap; }
-    .footer__anpc-link { display: inline-block; opacity: 0.85; transition: opacity 0.2s; }
-    .footer__anpc-link:hover { opacity: 1; }
-    .footer__anpc-img { height: 60px; width: auto; object-fit: contain; background: white; border-radius: 8px; padding: 6px 12px; }
-    .footer__anpc-img--litigii { height: 50px; }
+.footer__anpc { display: flex; align-items: center; justify-content: center; gap: 32px; padding: 24px 0 16px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+.footer__anpc-link { display: inline-block; opacity: 0.85; transition: opacity 0.2s; }
+.footer__anpc-link:hover { opacity: 1; }
+.footer__anpc-img { height: 60px; width: auto; object-fit: contain; background: white; border-radius: 8px; padding: 6px 12px; }
+.footer__anpc-img--litigii { height: 50px; }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>(function(){emailjs.init("USER_PUBLIC_KEY");}());</script>
@@ -298,7 +312,7 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
       <span>© 2026 Marian Cristian Marin. Toate drepturile rezervate.</span>
       <span class="mono footer__gdpr">GDPR Compliant · Date procesate conform Regulamentului UE 2016/679</span>
     </div>
-      <div class="container footer__anpc">
+    <div class="container footer__anpc">
       <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener" class="footer__anpc-link">
         <img src="anpc.png" alt="ANPC" class="footer__anpc-img" />
       </a>
