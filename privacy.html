@@ -10,8 +10,8 @@
     :root {
       --bg: #ffffff;
       --bg-section: #f8f9fa;
-      --text: #1a1a2e;
-      --text-light: #4a5568;
+      --text: #111827;
+      --text-light: #1f2937;
       --accent: #3B82F6;
       --accent-dark: #2563EB;
       --border: #e2e8f0;
@@ -24,7 +24,8 @@
       color: var(--text);
       font-family: var(--font);
       font-size: 17px;
-      line-height: 1.8;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
     }
     header {
       background: #fff;
@@ -53,16 +54,11 @@
       border: 4px solid var(--accent);
       margin: 0 auto 20px;
       box-shadow: 0 8px 24px rgba(59,130,246,0.35);
+      background: #ffffff;
     }
-    .profile-hero__img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .profile-hero__img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
     .profile-hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
     .profile-hero p { font-size: 1rem; opacity: 0.85; max-width: 520px; margin: 0 auto; }
-    .profile-hero__badge {
-      display: inline-block; margin-top: 14px;
-      background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.4);
-      color: #93c5fd; padding: 4px 14px; border-radius: 20px;
-      font-size: 0.85rem; font-weight: 500;
-    }
     .container { max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; }
     h2 {
       font-size: 1.4rem; font-weight: 700; color: var(--text);
@@ -77,7 +73,7 @@
       border-bottom: 1px solid var(--border);
     }
     ul li:last-child { border-bottom: none; }
-    ul li::before { content: 'â†''; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
     .highlight { color: var(--accent-dark); font-weight: 600; }
     .contact-box {
       background: var(--bg-section); border: 1px solid var(--border);
@@ -94,25 +90,35 @@
       margin: 20px 0 36px; font-size: 1rem; color: #1e3a5f; line-height: 1.7;
     }
     .intro-box strong { color: #1d4ed8; }
-    .last-updated { font-size: 0.85rem; color: #888; margin-bottom: 24px; font-style: italic; }
+    .last-updated { font-size: 0.85rem; color: #555; margin-bottom: 24px; font-style: italic; }
     .page-title { font-size: 1.7rem; font-weight: 800; margin-bottom: 8px; color: var(--text); }
     footer {
-      background: #1a1a2e; color: #aaa;
+      background: #1a1a2e; color: #ccc;
       padding: 32px 24px; text-align: center; font-size: 0.9rem;
     }
     footer a { color: #93c5fd; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
     .footer__anpc {
       display: flex; justify-content: center; align-items: center;
-      gap: 24px; flex-wrap: wrap; margin-top: 18px;
+      gap: 32px; flex-wrap: wrap; margin-top: 18px;
       padding-top: 18px; border-top: 1px solid #333;
     }
-    .footer__anpc-img { height: 48px; width: auto; filter: brightness(0.9); }
-    .footer__anpc-img--litigii { height: 40px; }
+    .footer__anpc-link { display: inline-block; opacity: 0.9; transition: opacity 0.2s; }
+    .footer__anpc-link:hover { opacity: 1; }
+    .footer__anpc-img {
+      width: 250px;
+      height: 50px;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 6px 12px;
+      display: block;
+    }
     @media (max-width: 640px) {
       .profile-hero h1 { font-size: 1.5rem; }
       h2 { font-size: 1.2rem; }
       body { font-size: 16px; }
+      .footer__anpc-img { width: 180px; height: 40px; }
     }
   </style>
 </head>
@@ -129,7 +135,6 @@
   </div>
   <h1>Marian Cristian Marin</h1>
   <p>Specialist in automatizari AI pentru firme. Implementez fluxuri care functioneaza.</p>
-  <span class="profile-hero__badge">GDPR Compliant &middot; 2026</span>
 </div>
 
 <div class="container">
@@ -217,11 +222,11 @@
 <footer>
   <p>&copy; 2026 Marian Cristian Marin &middot; <a href="/">Inapoi la site</a> &middot; GDPR Compliant</p>
   <div class="footer__anpc">
-    <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener">
+    <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener" class="footer__anpc-link">
       <img src="anpc.png" alt="ANPC" class="footer__anpc-img" />
     </a>
-    <a href="https://consumer-redress.ec.europa.eu/index_en?prefLang=ro" target="_blank" rel="noopener">
-      <img src="litigii.png" alt="SOL Litigii" class="footer__anpc-img footer__anpc-img--litigii" />
+    <a href="https://consumer-redress.ec.europa.eu/index_en?prefLang=ro" target="_blank" rel="noopener" class="footer__anpc-link">
+      <img src="litigii.png" alt="SOL Litigii" class="footer__anpc-img" />
     </a>
   </div>
 </footer>
