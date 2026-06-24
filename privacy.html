@@ -3,133 +3,228 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PoliticÄ de ConfidenÈialitate â Marian Cristian Marin</title>
+  <title>Politica de Confidentialitate - Marian Cristian Marin</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg-primary: #0A0E1A;
-      --bg-secondary: #111827;
-      --accent-blue: #3B82F6;
-      --text-primary: #F9FAFB;
-      --text-secondary: #9CA3AF;
-      --border: #1F2937;
-      --font-main: 'Inter', sans-serif;
-      --max-width: 800px;
+      --bg: #ffffff;
+      --bg-section: #f8f9fa;
+      --text: #1a1a2e;
+      --text-light: #4a5568;
+      --accent: #3B82F6;
+      --accent-dark: #2563EB;
+      --border: #e2e8f0;
+      --font: 'Inter', sans-serif;
       --radius: 12px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background-color: var(--bg-primary); color: var(--text-primary); font-family: var(--font-main); font-size: 16px; line-height: 1.7; }
-    header { background-color: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
-    header a { color: var(--text-primary); text-decoration: none; font-weight: 700; font-size: 1rem; }
-    header .back-link { color: var(--accent-blue); font-size: 0.9rem; font-weight: 500; }
-    .container { max-width: var(--max-width); margin: 0 auto; padding: 48px 24px 80px; }
-    .page-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 8px; }
-    .last-updated { color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 40px; }
-    .intro-box { background-color: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent-blue); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 40px; color: var(--text-secondary); font-size: 0.95rem; }
-    h2 { font-size: 1.25rem; font-weight: 700; margin-top: 40px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-    p { color: var(--text-secondary); margin-bottom: 12px; }
-    ul { color: var(--text-secondary); padding-left: 20px; margin-bottom: 12px; }
-    ul li { margin-bottom: 6px; }
-    a { color: var(--accent-blue); }
-    .highlight { color: var(--text-primary); font-weight: 600; }
-    .contact-box { background-color: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-top: 24px; }
-    .contact-box h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
-    footer { background-color: var(--bg-secondary); border-top: 1px solid var(--border); padding: 24px; text-align: center; color: var(--text-secondary); font-size: 0.875rem; }
-    footer a { color: var(--accent-blue); text-decoration: none; }
-  
-    .footer__anpc { display: flex; align-items: center; justify-content: center; gap: 32px; padding: 24px 0 16px; border-top: 1px solid #1F2937; flex-wrap: wrap; margin-top: 16px; }
-    .footer__anpc-link { display: inline-block; opacity: 0.85; transition: opacity 0.2s; }
-    .footer__anpc-link:hover { opacity: 1; }
-    .footer__anpc-img { height: 60px; width: auto; object-fit: contain; background: white; border-radius: 8px; padding: 6px 12px; }
-    .footer__anpc-img--litigii { height: 50px; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+    header {
+      background: #fff;
+      border-bottom: 2px solid var(--border);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    header a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 1rem; }
+    header a:hover { text-decoration: underline; }
+    .header__logo { font-weight: 800; font-size: 1.1rem; color: var(--text); }
+    .profile-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 60px 24px 50px;
+      text-align: center;
+      color: #fff;
+    }
+    .profile-hero__img-wrap {
+      width: 130px; height: 130px;
+      border-radius: 50%; overflow: hidden;
+      border: 4px solid var(--accent);
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 24px rgba(59,130,246,0.35);
+    }
+    .profile-hero__img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .profile-hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+    .profile-hero p { font-size: 1rem; opacity: 0.85; max-width: 520px; margin: 0 auto; }
+    .profile-hero__badge {
+      display: inline-block; margin-top: 14px;
+      background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.4);
+      color: #93c5fd; padding: 4px 14px; border-radius: 20px;
+      font-size: 0.85rem; font-weight: 500;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; }
+    h2 {
+      font-size: 1.4rem; font-weight: 700; color: var(--text);
+      margin: 44px 0 14px; padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent); line-height: 1.4;
+    }
+    p { margin-bottom: 14px; color: var(--text-light); font-size: 1rem; }
+    ul { margin: 12px 0 18px 0; padding-left: 0; list-style: none; }
+    ul li {
+      color: var(--text-light); font-size: 1rem;
+      padding: 8px 0 8px 28px; position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    ul li:last-child { border-bottom: none; }
+    ul li::before { content: 'â†''; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .highlight { color: var(--accent-dark); font-weight: 600; }
+    .contact-box {
+      background: var(--bg-section); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: var(--radius);
+      padding: 22px 26px; margin: 18px 0;
+    }
+    .contact-box h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+    .contact-box p { margin-bottom: 6px; font-size: 0.95rem; }
+    .contact-box a { color: var(--accent-dark); font-weight: 500; text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+    .intro-box {
+      background: #eff6ff; border: 1px solid #bfdbfe;
+      border-radius: var(--radius); padding: 20px 24px;
+      margin: 20px 0 36px; font-size: 1rem; color: #1e3a5f; line-height: 1.7;
+    }
+    .intro-box strong { color: #1d4ed8; }
+    .last-updated { font-size: 0.85rem; color: #888; margin-bottom: 24px; font-style: italic; }
+    .page-title { font-size: 1.7rem; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    footer {
+      background: #1a1a2e; color: #aaa;
+      padding: 32px 24px; text-align: center; font-size: 0.9rem;
+    }
+    footer a { color: #93c5fd; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer__anpc {
+      display: flex; justify-content: center; align-items: center;
+      gap: 24px; flex-wrap: wrap; margin-top: 18px;
+      padding-top: 18px; border-top: 1px solid #333;
+    }
+    .footer__anpc-img { height: 48px; width: auto; filter: brightness(0.9); }
+    .footer__anpc-img--litigii { height: 40px; }
+    @media (max-width: 640px) {
+      .profile-hero h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.2rem; }
+      body { font-size: 16px; }
+    }
   </style>
 </head>
 <body>
+
 <header>
-  <a href="/">Marian Cristian Marin</a>
-  <a href="/" class="back-link">â Ãnapoi la site</a>
+  <span class="header__logo">Marian Cristian Marin</span>
+  <a href="/">&larr; Inapoi la site</a>
 </header>
-<div class="container">
-  <h1 class="page-title">PoliticÄ de ConfidenÈialitate</h1>
-  <p class="last-updated">Ultima actualizare: 23 iunie 2026</p>
-  <div class="intro-box">
-    AceastÄ politicÄ descrie modul Ã®n care <strong>Marian Cristian Marin</strong> colecteazÄ, utilizeazÄ Èi protejeazÄ datele cu caracter personal ale utilizatorilor site-ului, Ã®n conformitate cu <strong>Regulamentul (UE) 2016/679 (GDPR)</strong> Èi legislaÈia romÃ¢nÄ Ã®n vigoare.
+
+<div class="profile-hero">
+  <div class="profile-hero__img-wrap">
+    <img src="marian-profile.png" alt="Marian Cristian Marin" />
   </div>
+  <h1>Marian Cristian Marin</h1>
+  <p>Specialist in automatizari AI pentru firme. Implementez fluxuri care functioneaza.</p>
+  <span class="profile-hero__badge">GDPR Compliant &middot; 2026</span>
+</div>
+
+<div class="container">
+  <h1 class="page-title">Politica de Confidentialitate</h1>
+  <p class="last-updated">Ultima actualizare: 23 iunie 2026</p>
+
+  <div class="intro-box">
+    Aceasta politica descrie modul in care <strong>Marian Cristian Marin</strong> colecteaza, utilizeaza si protejeaza datele dumneavoastra cu caracter personal, in conformitate cu Regulamentul UE 2016/679 (GDPR).
+  </div>
+
   <h2>1. Identitatea Operatorului de Date</h2>
   <p><span class="highlight">Operator:</span> Marian Cristian Marin</p>
   <p><span class="highlight">Email:</span> <a href="mailto:mariancristianmarin1988@gmail.com">mariancristianmarin1988@gmail.com</a></p>
   <p><span class="highlight">Website:</span> mariancmarin.github.io/site-automatizari-</p>
-  <h2>2. Ce Date ColectÄm</h2>
-  <p>Prin formularul de contact de pe site, colectÄm:</p>
+
+  <h2>2. Ce Date Colectam</h2>
+  <p>Prin formularul de contact de pe site, colectam:</p>
   <ul>
-    <li><span class="highlight">Nume Èi prenume</span> â cÃ¢mp obligatoriu</li>
-    <li><span class="highlight">AdresÄ de email</span> â cÃ¢mp obligatoriu</li>
-    <li><span class="highlight">NumÄr de telefon</span> â cÃ¢mp opÈional</li>
-    <li><span class="highlight">Denumirea firmei</span> â cÃ¢mp opÈional</li>
-    <li><span class="highlight">Mesajul transmis</span> â descrierea nevoii de automatizare</li>
+    <li><span class="highlight">Nume si prenume</span> - camp obligatoriu</li>
+    <li><span class="highlight">Adresa de email</span> - camp obligatoriu</li>
+    <li><span class="highlight">Numar de telefon</span> - camp optional</li>
+    <li><span class="highlight">Denumirea firmei</span> - camp optional</li>
+    <li><span class="highlight">Mesajul transmis</span> - descrierea nevoii de automatizare</li>
   </ul>
-  <p>Serverul poate colecta automat date tehnice (adresÄ IP, tip browser) Ã®n scopuri de securitate.</p>
-  <h2>3. Scopul Èi Temeiul Legal al PrelucrÄrii</h2>
+  <p>Serverul poate colecta automat date tehnice (adresa IP, tip browser) in scopuri de securitate.</p>
+
+  <h2>3. Scopul si Temeiul Legal al Prelucrarii</h2>
   <ul>
-    <li><span class="highlight">RÄspuns la solicitÄri</span> â pe baza consimÈÄmÃ¢ntului dumneavoastrÄ explicit (Art. 6 alin. 1 lit. a GDPR)</li>
-    <li><span class="highlight">Comunicare comercialÄ</span> â dacÄ v-aÈi exprimat consimÈÄmÃ¢ntul (Art. 6 alin. 1 lit. a GDPR)</li>
-    <li><span class="highlight">Interes legitim</span> â gestionarea relaÈiei cu potenÈialii clienÈi (Art. 6 alin. 1 lit. f GDPR)</li>
+    <li><span class="highlight">Raspuns la solicitari</span> - pe baza consimtamantului dumneavoastra explicit (Art. 6 alin. 1 lit. a GDPR)</li>
+    <li><span class="highlight">Comunicare comerciala</span> - daca v-ati exprimat consimtamantul (Art. 6 alin. 1 lit. a GDPR)</li>
+    <li><span class="highlight">Obligatii legale</span> - in cazul in care prelucrarea este impusa de lege (Art. 6 alin. 1 lit. c GDPR)</li>
   </ul>
+
   <h2>4. Perioada de Stocare</h2>
-  <ul>
-    <li>Datele din formular se pÄstreazÄ maximum <span class="highlight">2 ani</span> de la ultima interacÈiune.</li>
-    <li>DacÄ nu s-a stabilit o relaÈie contractualÄ, datele sunt Èterse Ã®n <span class="highlight">6 luni</span>.</li>
-  </ul>
+  <p>Datele dumneavoastra se pastreaza maxim <strong>2 ani</strong> de la ultima interactiune sau pana la retragerea consimtamantului. Datele fiscale/contabile se pastreaza conform obligatiilor legale (10 ani).</p>
+
   <h2>5. Destinatarii Datelor</h2>
-  <p>Datele nu sunt vÃ¢ndute sau transferate Ã®n scopuri comerciale. Pot fi accesate de:</p>
+  <p>Datele pot fi partajate cu:</p>
   <ul>
-    <li><span class="highlight">Operatorul site-ului</span> â Marian Cristian Marin</li>
-    <li><span class="highlight">GitHub (Microsoft)</span> â furnizor de gÄzduire, conform politicilor proprii GDPR</li>
-    <li><span class="highlight">AutoritÄÈi publice</span> â cÃ¢nd existÄ obligaÈie legalÄ</li>
+    <li><span class="highlight">EmailJS</span> - serviciu de trimitere email (SUA, Privacy Shield)</li>
+    <li><span class="highlight">GitHub Pages</span> - gazduire site (SUA, Privacy Shield)</li>
+    <li>Autoritati competente, exclusiv la solicitare legala</li>
   </ul>
-  <h2>6. Transferul Datelor Ã®n Afara UE</h2>
-  <p>Site-ul este gÄzduit pe <span class="highlight">GitHub Pages (Microsoft)</span>, care poate procesa date Ã®n SUA, cu garanÈii adecvate prin clauze contractuale standard aprobate de Comisia EuropeanÄ. Detalii: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">Politica GitHub</a>.</p>
-  <h2>7. Drepturile DumneavoastrÄ GDPR</h2>
+  <p>Nu vindem si nu inchiriem datele dumneavoastra catre terte parti comerciale.</p>
+
+  <h2>6. Transferuri Internationale</h2>
+  <p>Serviciile mentionate (EmailJS, GitHub) sunt furnizori din SUA care respecta mecanismele de transfer aprobate de UE. Prelucrarea se face cu garantii adecvate conform art. 46 GDPR.</p>
+
+  <h2>7. Drepturile Dumneavoastra</h2>
+  <p>In conformitate cu GDPR, aveti urmatoarele drepturi:</p>
   <ul>
-    <li><span class="highlight">Dreptul de acces</span> â sÄ solicitaÈi o copie a datelor deÈinute despre dumneavoastrÄ</li>
-    <li><span class="highlight">Dreptul la rectificare</span> â corectarea datelor inexacte sau incomplete</li>
-    <li><span class="highlight">Dreptul la Ètergere</span> â Ètergerea datelor ("dreptul de a fi uitat")</li>
-    <li><span class="highlight">Dreptul la restricÈionare</span> â limitarea prelucrÄrii datelor</li>
-    <li><span class="highlight">Dreptul la portabilitate</span> â primirea datelor Ã®n format structurat</li>
-    <li><span class="highlight">Dreptul la opoziÈie</span> â opunerea prelucrÄrii Ã®n scopuri de marketing</li>
-    <li><span class="highlight">Retragerea consimÈÄmÃ¢ntului</span> â Ã®n orice moment, fÄrÄ afectarea prelucrÄrilor anterioare</li>
-    <li><span class="highlight">Dreptul de a depune plÃ¢ngere</span> â la ANSPDCP</li>
+    <li><span class="highlight">Dreptul de acces</span> - sa solicitati o copie a datelor prelucrate</li>
+    <li><span class="highlight">Dreptul la rectificare</span> - corectarea datelor incorecte</li>
+    <li><span class="highlight">Dreptul la stergere</span> - dreptul de a fi uitat</li>
+    <li><span class="highlight">Dreptul la restrictionarea prelucrarii</span></li>
+    <li><span class="highlight">Dreptul la portabilitate</span> - primirea datelor intr-un format structurat</li>
+    <li><span class="highlight">Dreptul la opozitie</span> - impotriva prelucrarii bazate pe interes legitim</li>
+    <li><span class="highlight">Retragerea consimtamantului</span> - oricand, fara consecinte negative</li>
   </ul>
-  <h2>8. Cookie-uri</h2>
-  <p>Acest site nu utilizeazÄ cookie-uri de tracking, analizÄ sau marketing. Platforma de gÄzduire GitHub Pages poate utiliza cookie-uri tehnice esenÈiale pentru funcÈionare.</p>
+
+  <h2>8. Utilizarea Cookie-urilor</h2>
+  <p>Site-ul foloseste exclusiv cookie-uri tehnice necesare functionarii. Nu folosim cookie-uri de tracking sau publicitate de la terte parti.</p>
+
   <h2>9. Securitatea Datelor</h2>
-  <p>AplicÄm mÄsuri tehnice Èi organizatorice adecvate pentru protejarea datelor Ã®mpotriva accesului neautorizat, pierderii sau distrugerii accidentale.</p>
-  <h2>10. ModificÄri ale Politicii</h2>
-  <p>Ne rezervÄm dreptul de a actualiza aceastÄ politicÄ. Data ultimei modificÄri este indicatÄ la Ã®nceputul documentului. VÄ recomandÄm sÄ verificaÈi periodic aceastÄ paginÄ.</p>
+  <p>Implementam masuri tehnice si organizatorice adecvate: conexiune HTTPS, acces restrictionat la date, audit periodic al securitatii.</p>
+
+  <h2>10. Modificari ale Politicii</h2>
+  <p>Ne rezervam dreptul de a actualiza aceasta politica. Data ultimei modificari este indicata la inceputul documentului. Va recomandam sa verificati periodic aceasta pagina.</p>
+
   <h2>11. Autoritatea de Supraveghere</h2>
   <div class="contact-box">
-    <h3>ANSPDCP â Autoritatea NaÈionalÄ de Supraveghere a PrelucrÄrii Datelor cu Caracter Personal</h3>
-    <p>AdresÄ: B-dul G-ral. Gheorghe Magheru 28-30, Sector 1, BucureÈti</p>
+    <h3>ANSPDCP - Autoritatea Nationala de Supraveghere a Prelucrarii Datelor cu Caracter Personal</h3>
+    <p>Adresa: B-dul G-ral. Gheorghe Magheru 28-30, Sector 1, Bucuresti</p>
     <p>Email: <a href="mailto:anspdcp@dataprotection.ro">anspdcp@dataprotection.ro</a></p>
     <p>Website: <a href="https://www.dataprotection.ro" target="_blank">www.dataprotection.ro</a></p>
   </div>
+
   <div class="contact-box">
     <h3>Contact pentru exercitarea drepturilor GDPR</h3>
     <p>Email: <a href="mailto:mariancristianmarin1988@gmail.com">mariancristianmarin1988@gmail.com</a></p>
-    <p>RÄspundem Ã®n maximum <strong>30 de zile calendaristice</strong>.</p>
+    <p>Raspundem in maximum <strong>30 de zile calendaristice</strong>.</p>
   </div>
 </div>
+
 <footer>
-  <p>Â© 2026 Marian Cristian Marin Â· <a href="/">Ãnapoi la site</a> Â· GDPR Compliant</p>
+  <p>&copy; 2026 Marian Cristian Marin &middot; <a href="/">Inapoi la site</a> &middot; GDPR Compliant</p>
   <div class="footer__anpc">
-    <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener" class="footer__anpc-link">
+    <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener">
       <img src="anpc.png" alt="ANPC" class="footer__anpc-img" />
     </a>
-    <a href="https://consumer-redress.ec.europa.eu/index_en?prefLang=ro" target="_blank" rel="noopener" class="footer__anpc-link">
+    <a href="https://consumer-redress.ec.europa.eu/index_en?prefLang=ro" target="_blank" rel="noopener">
       <img src="litigii.png" alt="SOL Litigii" class="footer__anpc-img footer__anpc-img--litigii" />
     </a>
   </div>
 </footer>
+
 </body>
 </html>
