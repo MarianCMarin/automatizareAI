@@ -51,7 +51,6 @@ function validateEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// Clear errors on input
 ['nume', 'email', 'mesaj'].forEach(id => {
   const el = document.getElementById(id);
   if (el) {
@@ -64,7 +63,6 @@ if (form) {
     e.preventDefault();
     let valid = true;
 
-    // Reset errors
     ['nume', 'email', 'mesaj', 'gdpr'].forEach(id => clearError(id));
 
     const nume = document.getElementById('nume').value.trim();
@@ -105,8 +103,12 @@ if (form) {
     const firma = document.getElementById('firma') ? document.getElementById('firma').value.trim() : '';
 
     emailjs.send('service_42fdawn', 'template_j4048ov', {
+      from_name: nume,
+      name: nume,
       nume: nume,
+      reply_to: email,
       email: email,
+      message: mesaj,
       mesaj: mesaj,
       telefon: telefon,
       firma: firma
@@ -116,7 +118,7 @@ if (form) {
     }, function(error) {
       submitBtn.textContent = 'Trimite mesajul';
       submitBtn.disabled = false;
-      alert('Eroare la trimitere. Te rog incearca din nou. (' + JSON.stringify(error) + ')');
+      alert('Eroare la trimitere. Te rog incearca din nou.');
     });
   });
 }
