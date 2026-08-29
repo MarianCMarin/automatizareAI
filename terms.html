@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termeni și Condiții - Marian Cristian Marin</title>
+  <link href="fonts.css" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #ffffff;
+      --bg-section: #f8f9fa;
+      --text: #111827;
+      --text-light: #1f2937;
+      --accent: #3B82F6;
+      --accent-dark: #2563EB;
+      --border: #e2e8f0;
+      --font: 'Inter', sans-serif;
+      --radius: 12px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 17px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      background: #fff;
+      border-bottom: 2px solid var(--border);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    header a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 1rem; }
+    header a:hover { text-decoration: underline; }
+    .header__logo { font-weight: 800; font-size: 1.1rem; color: var(--text); }
+    .profile-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 60px 24px 50px;
+      text-align: center;
+      color: #fff;
+    }
+    .profile-hero__img-wrap {
+      width: 130px; height: 130px;
+      border-radius: 50%; overflow: hidden;
+      border: 4px solid var(--accent);
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 24px rgba(59,130,246,0.35);
+      background: #ffffff;
+    }
+    .profile-hero__img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+    .profile-hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+    .profile-hero p { font-size: 1rem; opacity: 0.85; max-width: 520px; margin: 0 auto; }
+    .container { max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; }
+    h2 {
+      font-size: 1.4rem; font-weight: 700; color: var(--text);
+      margin: 44px 0 14px; padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent); line-height: 1.4;
+    }
+    p { margin-bottom: 14px; color: var(--text-light); font-size: 1rem; }
+    ul { margin: 12px 0 18px 0; padding-left: 0; list-style: none; }
+    ul li {
+      color: var(--text-light); font-size: 1rem;
+      padding: 8px 0 8px 28px; position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    ul li:last-child { border-bottom: none; }
+    ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .highlight { color: var(--accent-dark); font-weight: 600; }
+    .contact-box {
+      background: var(--bg-section); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: var(--radius);
+      padding: 22px 26px; margin: 18px 0;
+    }
+    .contact-box h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+    .contact-box p { margin-bottom: 6px; font-size: 0.95rem; }
+    .contact-box a { color: var(--accent-dark); font-weight: 500; text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+    .intro-box {
+      background: #eff6ff; border: 1px solid #bfdbfe;
+      border-radius: var(--radius); padding: 20px 24px;
+      margin: 20px 0 36px; font-size: 1rem; color: #1e3a5f; line-height: 1.7;
+    }
+    .intro-box strong { color: #1d4ed8; }
+    .last-updated { font-size: 0.85rem; color: #555; margin-bottom: 24px; font-style: italic; }
+    .page-title { font-size: 1.7rem; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    footer {
+      background: #1a1a2e; color: #ccc;
+      padding: 32px 24px; text-align: center; font-size: 0.9rem;
+    }
+    footer a { color: #93c5fd; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer__anpc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #333;
+}
+.footer__anpc-link {
+  display: inline-block;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+  line-height: 0;
+}
+.footer__anpc-link:hover { opacity: 1; }
+.footer__anpc-img {
+  width: 250px !important;
+  height: 50px !important;
+  max-width: 250px !important;
+  max-height: 50px !important;
+  object-fit: contain !important;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: block !important;
+}
+    @media (max-width: 640px) {
+      .profile-hero h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.2rem; }
+      body { font-size: 16px; }
+      .footer__anpc-img { width: 180px; height: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="header__logo">Marian Cristian Marin</span>
+  <a href="/">&larr; Înapoi la site</a>
+</header>
+
+<div class="profile-hero">
+  <div class="profile-hero__img-wrap">
+    <img src="marian-profile.png" alt="Marian Cristian Marin" />
+  </div>
+  <h1>Marian Cristian Marin</h1>
+  <p>Specialist în automatizări AI pentru firme. Implementez fluxuri care funcționează.</p>
+</div>
+
+<div class="container">
+  <h1 class="page-title">Termeni și Condiții</h1>
+  <p class="last-updated">Ultima actualizare: 29 august 2026</p>
+
+  <div class="intro-box">
+    Acești termeni reglementează utilizarea site-ului <strong>mariancmarin.github.io/automatizareAI</strong>, operat de <strong>Entertain Show Events SRL</strong>. Prin navigarea pe acest site, sunteți de acord cu termenii de mai jos.
+  </div>
+
+  <h2>1. Date de Identificare</h2>
+  <p><span class="highlight">Operator site:</span> Entertain Show Events SRL, prin Marian Cristian Marin</p>
+  <p><span class="highlight">CUI/CIF:</span> 34485580</p>
+  <p><span class="highlight">Sediu:</span> Șos. Pantelimon nr. 144, Sector 2, București</p>
+  <p><span class="highlight">Email:</span> <a href="mailto:mariancristianmarin1988@gmail.com">mariancristianmarin1988@gmail.com</a></p>
+
+  <h2>2. Natura Informațiilor de pe Site</h2>
+  <p>Conținutul acestui site (descrierea serviciilor, exemplele de fluxuri automatizate, statisticile țintă) are caracter <span class="highlight">informativ și orientativ</span>. Nu constituie o ofertă fermă, angajament contractual sau garanție de rezultat.</p>
+  <p>Detaliile concrete ale unui proiect — scop, termene, preț, rezultate estimate — se stabilesc exclusiv printr-un contract de prestări servicii semnat separat, ulterior consultației gratuite.</p>
+
+  <h2>3. Formularul de Contact</h2>
+  <p>Completarea formularului de contact nu creează nicio obligație contractuală între dumneavoastră și Entertain Show Events SRL. Reprezintă doar o solicitare de informații/consultație, la care răspundem în cel mult 24 de ore.</p>
+
+  <h2>4. Proprietate Intelectuală</h2>
+  <p>Conținutul acestui site (texte, design, elemente grafice, cod sursă al paginii) aparține Entertain Show Events SRL sau este utilizat cu drept legal. Reproducerea, distribuirea sau modificarea conținutului fără acordul scris al operatorului nu este permisă.</p>
+
+  <h2>5. Limitarea Răspunderii</h2>
+  <ul>
+    <li>Informațiile de pe site sunt actualizate periodic, dar nu garantăm acuratețea absolută sau caracterul complet al acestora în orice moment</li>
+    <li>Rezultatele automatizărilor variază în funcție de contextul specific al fiecărui client și nu pot fi garantate generic printr-o pagină de prezentare</li>
+    <li>Nu răspundem pentru eventuale întreruperi tehnice ale site-ului sau ale serviciilor terțe folosite (EmailJS, GitHub Pages)</li>
+  </ul>
+
+  <h2>6. Protecția Datelor cu Caracter Personal</h2>
+  <p>Prelucrarea datelor colectate prin acest site este descrisă separat în <a href="privacy.html" class="link" style="color: var(--accent-dark); font-weight: 600;">Politica de Confidențialitate</a>, parte integrantă din acești termeni.</p>
+
+  <h2>7. Legea Aplicabilă</h2>
+  <p>Acești termeni sunt guvernați de legea română. Orice litigiu care nu poate fi soluționat pe cale amiabilă este de competența instanțelor române competente.</p>
+
+  <h2>8. Modificări ale Termenilor</h2>
+  <p>Ne rezervăm dreptul de a actualiza acești termeni. Data ultimei modificări este indicată la începutul documentului. Vă recomandăm să verificați periodic această pagină.</p>
+
+  <h2>9. Contact</h2>
+  <div class="contact-box">
+    <h3>Pentru întrebări legate de acești termeni</h3>
+    <p>Email: <a href="mailto:mariancristianmarin1988@gmail.com">mariancristianmarin1988@gmail.com</a></p>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Entertain Show Events SRL &middot; CUI 34485580 &middot; <a href="/">Înapoi la site</a> &middot; GDPR Compliant</p>
+  <div class="footer__anpc">
+    <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener" class="footer__anpc-link">
+      <img src="anpc.png" alt="ANPC" class="footer__anpc-img" />
+    </a>
+    <a href="https://consumer-redress.ec.europa.eu/index_en?prefLang=ro" target="_blank" rel="noopener" class="footer__anpc-link">
+      <img src="litigii.png" alt="SOL Litigii" class="footer__anpc-img" />
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
