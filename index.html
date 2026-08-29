@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Automatizări AI pentru Firme — Marian Cristian Marin</title>
+  <title>Automatizări AI pentru Servicii B2B — Marian Cristian Marin</title>
+  <meta name="description" content="Automatizez lead qualification, programări și follow-up pentru firme de consultanță, agenții și clinici. Clienții primesc răspuns instant, echipa ta se ocupă doar de cazurile care contează." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -150,6 +151,20 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
 .footer__anpc-link:hover { opacity: 1; }
 .footer__anpc-img { height: 60px; width: auto; object-fit: contain; background: white; border-radius: 8px; padding: 6px 12px; }
 .footer__anpc-img--litigii { height: 50px; }
+.stack-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+.stack-badge { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; padding: 6px 14px; }
+.problema__icon svg { width: 30px; height: 30px; color: var(--accent-blue); }
+.flow-diagram { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 8px 0 56px; padding: 32px 28px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.flow-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; min-width: 108px; }
+.flow-step__num { width: 28px; height: 28px; border-radius: 50%; background: rgba(59,130,246,0.15); color: var(--accent-blue); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.78rem; flex-shrink: 0; }
+.flow-step__label { font-size: 0.82rem; color: var(--text-primary); font-weight: 600; line-height: 1.3; }
+.flow-step__tool { display: block; color: var(--text-secondary); font-weight: 400; font-size: 0.7rem; margin-top: 2px; }
+.flow-step--done .flow-step__num { background: rgba(16,185,129,0.18); color: var(--accent-green); }
+.flow-arrow { color: var(--text-secondary); font-size: 1.1rem; flex-shrink: 0; }
+@media (max-width: 768px) {
+  .flow-diagram { flex-direction: column; align-items: flex-start; padding: 24px; }
+  .flow-arrow { transform: rotate(90deg); margin-left: 14px; }
+}
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>(function(){emailjs.init("wCTMCOwOgxMOp6eAL");}());</script>
@@ -163,17 +178,23 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
   </nav>
   <section class="hero" id="hero">
     <div class="container hero__inner">
-      <div class="hero__tag"><span class="mono">Automatizări AI · România</span></div>
-      <h1 class="hero__headline">Firma ta pierde timp pe taskuri pe care <span class="gradient-text">AI le face automat.</span></h1>
-      <p class="hero__sub">Implementez fluxuri automate în procesele, vânzările și suportul tău fără să angajezi pe nimeni nou și fără să îți opresc activitatea.</p>
+      <div class="hero__tag"><span class="mono">Automatizări AI pentru firme de servicii · România</span></div>
+      <h1 class="hero__headline">Firma ta pierde clienți pe follow-up-uri pe care <span class="gradient-text">AI le face automat.</span></h1>
+      <p class="hero__sub">Implementez lead qualification, programări și follow-up automate pentru firme de consultanță, agenții și clinici — clienții primesc răspuns instant, echipa ta se ocupă doar de cazurile care chiar contează.</p>
+      <div class="stack-badges">
+        <span class="stack-badge">WhatsApp</span>
+        <span class="stack-badge">Email</span>
+        <span class="stack-badge">Calendar</span>
+        <span class="stack-badge">CRM</span>
+      </div>
       <div class="hero__cta">
         <a href="#contact" class="btn btn--primary">Vreau o consultație gratuită</a>
         <a href="#servicii" class="btn btn--ghost">Vezi ce automatizăm →</a>
       </div>
       <div class="hero__proof">
-        <div class="proof__item"><span class="proof__num mono">30 min</span><span class="proof__label">consultație gratuită</span></div>
+        <div class="proof__item"><span class="proof__num mono">&lt; 5 min</span><span class="proof__label">timp de răspuns către lead</span></div>
         <div class="proof__divider"></div>
-        <div class="proof__item"><span class="proof__num mono">3 arii</span><span class="proof__label">de automatizare</span></div>
+        <div class="proof__item"><span class="proof__num mono">24/7</span><span class="proof__label">calificare automată</span></div>
         <div class="proof__divider"></div>
         <div class="proof__item"><span class="proof__num mono">0 cod</span><span class="proof__label">necesar din partea ta</span></div>
       </div>
@@ -183,31 +204,42 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
   <section class="problema" id="problema">
     <div class="container">
       <div class="section-label mono">Recunoști asta?</div>
-      <h2 class="section-title">Productivitatea e o problemă de procese.</h2>
+      <h2 class="section-title">Clienții te contactează. Răspunsul vine peste ore, nu peste secunde.</h2>
       <div class="problema__grid">
-        <div class="problema__card fade-in"><div class="problema__icon">⏱</div><p>Angajații tăi trimit același email de zeci de ori pe lună manual, copiat, retrimis.</p></div>
-        <div class="problema__card fade-in"><div class="problema__icon">📊</div><p>Rapoartele se fac în Excel, în fiecare luni dimineață. De fiecare dată de la zero.</p></div>
-        <div class="problema__card fade-in"><div class="problema__icon">💬</div><p>Clienții tăi așteaptă ore pentru un răspuns pe care un agent AI l-ar da în 3 secunde.</p></div>
-        <div class="problema__card fade-in"><div class="problema__icon">🔁</div><p>Datele din CRM, facturare și email nu vorbesc între ele. Le sincronizează un om, manual.</p></div>
+        <div class="problema__card fade-in"><div class="problema__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><p>Un lead scrie pe WhatsApp sau completează formularul de pe site și așteaptă ore până cineva din echipă apucă să răspundă.</p></div>
+        <div class="problema__card fade-in"><div class="problema__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></div><p>Programările se fac prin telefon și mesaje, iar jumătate din timp cineva uită să confirme sau să facă follow-up.</p></div>
+        <div class="problema__card fade-in"><div class="problema__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v5h5"/><path d="M20 20v-5h-5"/><path d="M5.5 9a7 7 0 0 1 12-3.5L20 9"/><path d="M18.5 15a7 7 0 0 1-12 3.5L4 15"/></svg></div><p>Datele clientului stau într-un CRM, dar cineva le introduce manual din email, din formular, din WhatsApp.</p></div>
+        <div class="problema__card fade-in"><div class="problema__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><p>Rapoartele despre lead-uri și conversii se fac în Excel, în fiecare lună, de fiecare dată de la zero.</p></div>
       </div>
-      <p class="problema__concluzie">Fiecare oră pierdută pe taskuri repetitive costă bani reali. </p>
+      <p class="problema__concluzie">Fiecare lead care așteaptă prea mult răspunsul e un lead care sună la concurență.</p>
     </div>
   </section>
   <section class="servicii" id="servicii">
     <div class="container">
       <div class="section-label mono">Ce automatizăm</div>
-      <h2 class="section-title">Trei arii. Un singur partener.</h2>
+      <h2 class="section-title">De la primul mesaj al clientului, la conversie, fără intervenție manuală.</h2>
+      <div class="flow-diagram fade-in">
+        <div class="flow-step"><span class="flow-step__num mono">1</span><span class="flow-step__label">Lead nou<span class="flow-step__tool mono">site · WhatsApp</span></span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span class="flow-step__num mono">2</span><span class="flow-step__label">Calificare<span class="flow-step__tool mono">automată</span></span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span class="flow-step__num mono">3</span><span class="flow-step__label">Programare<span class="flow-step__tool mono">sau ofertă</span></span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span class="flow-step__num mono">4</span><span class="flow-step__label">Follow-up<span class="flow-step__tool mono">automat</span></span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step flow-step--done"><span class="flow-step__num mono">✓</span><span class="flow-step__label">Client convertit</span></div>
+      </div>
       <div class="servicii__grid">
         <div class="serviciu__card fade-in">
           <div class="serviciu__num mono">01</div>
           <h3 class="serviciu__title">Procese Interne</h3>
           <ul class="serviciu__list">
-            <li>Onboarding angajați fără hârtii și emailuri manuale</li>
-            <li>Facturare și raportare generate automat</li>
-            <li>CRM actualizat fără introducere manuală de date</li>
+            <li>Programări automate în calendar, cu confirmare și reminder</li>
+            <li>CRM actualizat automat din email, formular și WhatsApp</li>
+            <li>Facturare și rapoarte generate automat, fără Excel</li>
             <li>Notificări și aprobări interne fără follow-up uman</li>
           </ul>
-          <p class="serviciu__impact">Echipa ta se ocupă de ce contează, nu de ce se poate automatiza.</p>
+          <p class="serviciu__impact">Echipa ta se ocupă de client, nu de introducerea datelor despre el.</p>
         </div>
         <div class="serviciu__card serviciu__card--accent fade-in">
           <div class="serviciu__num mono">02</div>
@@ -215,21 +247,21 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
           <ul class="serviciu__list">
             <li>Chatbot activ 24/7 pe site, WhatsApp sau email</li>
             <li>Calificare automată a lead-urilor înainte să ajungă la echipa ta</li>
-            <li>Răspunsuri instant la întrebările frecvente</li>
+            <li>Răspunsuri instant la întrebările despre servicii și preț</li>
             <li>Escaladare inteligentă către om doar când e necesar</li>
           </ul>
-          <p class="serviciu__impact">Clienții primesc răspuns imediat. Echipa ta intervine doar unde adaugă valoare reală.</p>
+          <p class="serviciu__impact">Lead-ul primește răspuns în secunde, nu așteaptă un om liber.</p>
         </div>
         <div class="serviciu__card fade-in">
           <div class="serviciu__num mono">03</div>
           <h3 class="serviciu__title">Marketing și Vânzări</h3>
           <ul class="serviciu__list">
-            <li>Secvențe email automate pentru nurture și reactivare clienți</li>
+            <li>Secvențe automate de follow-up pentru lead-uri necalificate încă</li>
             <li>Pipeline de vânzări care se actualizează singur</li>
-            <li>Raportare automată a campaniilor active</li>
+            <li>Rapoarte automate despre conversii și surse de lead-uri</li>
             <li>Programare și publicare conținut fără intervenție manuală</li>
           </ul>
-          <p class="serviciu__impact">Vânzările se mișcă și când echipa ta nu e la birou.</p>
+          <p class="serviciu__impact">Pipeline-ul se mișcă și când echipa ta nu e la birou.</p>
         </div>
       </div>
     </div>
@@ -238,11 +270,11 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
     <div class="container credibilitate__inner">
       <div class="credibilitate__text fade-in">
         <div class="section-label mono">De ce Marian</div>
-        <h2 class="section-title">Nu vând software. Implementez fluxuri care funcționează.</h2>
-        <p>Lucrez direct cu antreprenori și manageri care vor rezultate concrete, nu prezentări PowerPoint. Fiecare proiect începe cu o analiză reală a proceselor tale — nu cu un template generic.</p>
+        <h2 class="section-title">Nu vând software. Implementez fluxuri care răspund la clienți în locul tău.</h2>
+        <p>Lucrez direct cu firme de consultanță, agenții și clinici care vor lead-uri calificate și programări confirmate, nu prezentări PowerPoint. Fiecare proiect începe cu o analiză reală a fluxului tău de clienți — nu cu un template generic.</p>
         <p>Primele implementări active din 2024. Rezultate documentate disponibile la cerere.</p>
         <div class="credibilitate__stats">
-          <div class="stat"><span class="stat__num mono">IMM-uri</span><span class="stat__label">și corporații din România</span></div>
+          <div class="stat"><span class="stat__num mono">&lt; 5 min</span><span class="stat__label">timp de răspuns către lead</span></div>
           <div class="stat"><span class="stat__num mono">3 arii</span><span class="stat__label">procese, clienți, vânzări</span></div>
           <div class="stat"><span class="stat__num mono">0</span><span class="stat__label">promisiuni fără acoperire</span></div>
         </div>
@@ -252,7 +284,7 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
           <img src="marian-profile.png" alt="Marian Cristian Marin" class="profile-img" />
         </div>
         <div class="credibilitate__quote">
-          <blockquote>"Înainte să propun orice soluție, vreau să înțeleg exact unde pierzi timp și bani. Abia după aceea construim."</blockquote>
+          <blockquote>"Înainte să propun orice soluție, vreau să înțeleg exact cum ajunge un client la tine și unde se pierde pe drum. Abia după aceea construim."</blockquote>
           <cite>— Marian Cristian Marin</cite>
         </div>
       </div>
@@ -263,9 +295,9 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
       <div class="section-label mono">Cum funcționează</div>
       <h2 class="section-title">4 pași de la primul contact la primul flux automatizat.</h2>
       <div class="proces__steps">
-        <div class="pas fade-in"><div class="pas__num mono">01</div><div class="pas__content"><h3 class="pas__title">Consultație gratuită — 30 min</h3><p class="pas__desc">Identificăm împreună unde pierzi cel mai mult timp și bani. Fără angajamente, fără prezentări de vânzare.</p></div></div>
+        <div class="pas fade-in"><div class="pas__num mono">01</div><div class="pas__content"><h3 class="pas__title">Consultație gratuită — 30 min</h3><p class="pas__desc">Identificăm împreună unde pierzi lead-uri — răspuns lent, programări uitate sau follow-up inconsistent. Fără angajamente, fără prezentări de vânzare.</p></div></div>
         <div class="pas__connector"></div>
-        <div class="pas fade-in"><div class="pas__num mono">02</div><div class="pas__content"><h3 class="pas__title">Audit și propunere</h3><p class="pas__desc">Primești un plan concret: ce automatizăm, cum, în cât timp și ce rezultat estimat produci.</p></div></div>
+        <div class="pas fade-in"><div class="pas__num mono">02</div><div class="pas__content"><h3 class="pas__title">Audit și propunere</h3><p class="pas__desc">Primești un plan concret: ce automatizăm din fluxul de la lead la client, în cât timp și ce rezultat estimat produce.</p></div></div>
         <div class="pas__connector"></div>
         <div class="pas fade-in"><div class="pas__num mono">03</div><div class="pas__content"><h3 class="pas__title">Implementare</h3><p class="pas__desc">Construim și testăm fluxurile fără să îți întrerupem activitatea. Tu continuă să lucrezi, noi construim în spate.</p></div></div>
         <div class="pas__connector"></div>
@@ -276,8 +308,8 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
   <section class="cta-final" id="contact">
     <div class="container cta-final__inner fade-in">
       <div class="section-label mono">Hai să vorbim</div>
-      <h2 class="cta-final__title">Vrei să vedem ce putem automatiza în firma ta?</h2>
-      <p class="cta-final__sub">Consultația inițială este gratuită și fără obligații. 30 de minute în care afli exact ce e posibil.</p>
+      <h2 class="cta-final__title">Vrei ca lead-urile tale să primească răspuns automat, non-stop?</h2>
+      <p class="cta-final__sub">Consultația inițială este gratuită și fără obligații. 30 de minute în care afli exact ce se poate automatiza din fluxul tău de clienți.</p>
       <form class="contact-form" id="contactForm" novalidate>
         <div class="form__row">
           <div class="form__group"><label for="nume">Nume *</label><input type="text" id="nume" name="nume" placeholder="Numele tău" required /><span class="form__error" id="err-nume"></span></div>
@@ -287,7 +319,7 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
           <div class="form__group"><label for="telefon">Telefon <span class="optional">(opțional)</span></label><input type="tel" id="telefon" name="telefon" placeholder="+40 7xx xxx xxx" /></div>
           <div class="form__group"><label for="firma">Firma</label><input type="text" id="firma" name="firma" placeholder="Numele firmei" /></div>
         </div>
-        <div class="form__group form__group--full"><label for="mesaj">Ce vrei să automatizezi? *</label><textarea id="mesaj" name="mesaj" rows="4" placeholder="Descrie pe scurt procesul sau problema principală..." required></textarea><span class="form__error" id="err-mesaj"></span></div>
+        <div class="form__group form__group--full"><label for="mesaj">Ce vrei să automatizezi? *</label><textarea id="mesaj" name="mesaj" rows="4" placeholder="Ex: calificare lead-uri, programări automate, chatbot pe site..." required></textarea><span class="form__error" id="err-mesaj"></span></div>
         <div class="form__gdpr">
           <input type="checkbox" id="gdpr" name="gdpr" required />
           <label for="gdpr">Sunt de acord cu <a href="privacy.html" class="link">Politica de confidențialitate</a> și cu prelucrarea datelor în scopul contactării. *</label>
@@ -307,10 +339,10 @@ body { background-color: var(--bg-primary); color: var(--text-primary); font-fam
   </section>
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer__left"><span class="footer__name">Marian Cristian Marin</span><span class="footer__tagline mono">Automatizări AI pentru firme</span></div>
+      <div class="footer__left"><span class="footer__name">Marian Cristian Marin</span><span class="footer__tagline mono">Automatizări AI pentru firme de servicii</span></div>
       <div class="footer__links">
         <a href="mailto:mariancristianmarin1988@gmail.com" class="footer__link">mariancristianmarin1988@gmail.com</a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer__link">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/marian-cristian-marin/" target="_blank" rel="noopener" class="footer__link">LinkedIn</a>
         <a href="privacy.html" class="footer__link">Politică de confidențialitate</a>
       </div>
     </div>
