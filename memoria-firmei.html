@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memoria firmei: kitul de foldere pentru agenți AI - gratuit</title>
+  <meta name="description" content="Structura de foldere cu care un agent AI ține minte firma ta: harta, o fișă pe domeniu, o fișă pe client și jurnalul de sesiuni. Gratuit, cu exemple de completat." />
+  <link rel="canonical" href="https://mariancmarin.github.io/automatizareAI/memoria-firmei.html" />
+  <meta property="og:title" content="Memoria firmei: kitul de foldere pentru agenți AI - gratuit" />
+  <meta property="og:description" content="Structura de foldere cu care un agent AI ține minte firma ta: harta, o fișă pe domeniu, o fișă pe client și jurnalul de sesiuni. Gratuit, cu exemple de completat." />
+  <meta property="og:url" content="https://mariancmarin.github.io/automatizareAI/memoria-firmei.html" />
+  <link href="fonts.css" rel="stylesheet" />
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0A0E1A; --card: #131C2E; --blue: #3B82F6; --green: #10B981; --text: #F9FAFB; --muted: #9CA3AF; --border: #1F2937; --border2: #243044; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', 'Segoe UI', Arial, sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+a { color: var(--blue); }
+.c { max-width: 780px; margin: 0 auto; padding: 0 16px; }
+nav { border-bottom: 1px solid var(--border); }
+nav .c { display: flex; justify-content: space-between; align-items: center; height: 60px; gap: 12px; }
+nav a { color: var(--text); text-decoration: none; font-weight: 700; }
+nav a.m { color: var(--muted); font-weight: 400; font-size: 0.9rem; }
+main { padding: 40px 0 24px; }
+h1 { font-size: clamp(1.7rem, 5vw, 2.4rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
+h2 { font-size: 1.35rem; margin: 34px 0 12px; }
+h3 { font-size: 1.08rem; margin: 24px 0 8px; }
+p, ul, ol { margin-bottom: 14px; color: #E5E7EB; }
+ul, ol { padding-left: 22px; }
+li { margin-bottom: 6px; }
+hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+code { font-family: 'JetBrains Mono', Consolas, monospace; font-size: 0.88em; background: var(--card); border: 1px solid var(--border2); border-radius: 5px; padding: 1px 5px; }
+pre { background: var(--card); border: 1px solid var(--border2); border-radius: 12px; padding: 16px; overflow-x: auto; margin: 0 0 18px; }
+pre code { background: none; border: none; padding: 0; font-size: 0.82rem; line-height: 1.55; white-space: pre; }
+.tw { overflow-x: auto; margin-bottom: 18px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--text); }
+.dl { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.3); border-radius: 12px; padding: 16px; margin: 8px 0 28px; }
+.btn { display: inline-block; background: var(--blue); color: #fff; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 8px; }
+.btn.g { background: transparent; border: 1px solid var(--border2); color: var(--text); }
+.more { margin-top: 36px; background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.3); border-radius: 12px; padding: 18px; }
+footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--muted); font-size: 0.8rem; }
+footer a { color: var(--muted); margin-right: 16px; }
+  </style>
+</head>
+<body>
+  <nav><div class="c"><a href="index.html">Marian Cristian Marin</a><a class="m" href="index.html">Pagina principală</a></div></nav>
+  <main class="c">
+    <div class="dl"><a class="btn" href="memoria_firmei_kit.md" download>Descarcă fișierul (.md)</a><span style="color:var(--muted);font-size:0.9rem">Gratuit, fără email. Se deschide în orice editor de text.</span></div>
+<h1>Memoria firmei: kitul de foldere</h1>
+<p>Agenții AI nu țin minte nimic de la o conversație la alta. Firma ține minte pentru ei, în fișiere simple, pe care le citește și un om. Kitul are 3 niveluri: o hartă, câte o fișă pe domeniu și un jurnal.</p>
+<h2>Structura</h2>
+<pre><code>firma/
+├── CLAUDE.md                  ← harta: ce există, unde stă, ce nu se amestecă (o pagină)
+├── regulament.md              ← regulamentul agentului (ton, prețuri, „întreabă-mă întâi”)
+├── vanzari/
+│   ├── context.md             ← fișa domeniului: ce știm, ce s-a decis, ce e interzis
+│   ├── oferta.md              ← serviciile și lista de prețuri valabilă
+│   └── sabloane/              ← răspuns la cerere, ofertă, follow-up
+├── marketing/
+│   ├── context.md
+│   ├── ton.md                 ← cum sună firma, cu 3 exemple bune și 3 de evitat
+│   └── cuvinte_interzise.md
+├── clienti/
+│   └── &lt;nume-client&gt;/
+│       └── fisa.md            ← câte o fișă pe fiecare client mare
+├── administrativ/
+│   └── context.md             ← facturare, contabil, termene (fără parole!)
+└── istoric/
+    └── 2026-11-25_sesiune.md  ← un fișier după fiecare sesiune de lucru</code></pre>
+<h2>Ce scrii în fiecare</h2>
+<h3><code>CLAUDE.md</code> (harta, maximum o pagină)</h3>
+<pre><code># Harta firmei [Nume]
+
+Citește întâi acest fișier, apoi `regulament.md`, apoi fișa domeniului, apoi ultimul fișier din `istoric/`.
+
+| Domeniu | Folder | Ce e acolo |
+|---|---|---|
+| Vânzări | vanzari/ | oferta, prețurile, șabloanele |
+| Marketing | marketing/ | tonul, cuvintele interzise |
+| Clienți | clienti/ | câte o fișă pe client mare |
+| Administrativ | administrativ/ | facturare, termene |
+
+Nu amesteca: [ex. „prețurile pentru firme cu cele pentru persoane fizice”].
+Ce nu există încă: [ex. „nu avem magazin online”] - nu-l presupune.</code></pre>
+<h3><code>&lt;domeniu&gt;/context.md</code> (fișa domeniului)</h3>
+<pre><code># Vânzări - fișa domeniului
+
+## Ce știm (fapte, cu data)
+- [25.11.2026] Cele mai multe cereri vin din formularul site-ului.
+
+## Ce s-a decis (cu data și cine)
+- [20.11.2026, patronul] Ofertele peste 2.000 lei le aprob eu.
+
+## Ce e interzis
+- Reduceri fără acord.
+
+## Întrebări deschise
+- Trecem la un CRM sau rămânem pe tabel?</code></pre>
+<h3><code>clienti/&lt;nume&gt;/fisa.md</code></h3>
+<pre><code># [Nume client]
+- Cine e, ce cumpără, de când.
+- Persoana de contact și cum preferă să fie contactată (fără parole, fără date de card).
+- Ce s-a promis și până când.
+- Ce nu-i place (ex. „nu vrea apeluri după 17:00”).
+- Ultima discuție: [data], [ce s-a stabilit].</code></pre>
+<h3><code>istoric/AAAA-LL-ZZ_sesiune.md</code></h3>
+<pre><code># Sesiunea din [data]
+## Ce s-a făcut
+## Unde stă fiecare lucru (căi de fișiere)
+## Ce rămâne de decis de patron</code></pre>
+<h2>Trei reguli care țin kitul viu</h2>
+<ol><li><strong>Harta trimite explicit la fișe.</strong> Agentul citește automat doar fișierul de la rădăcină; restul îl găsește pentru că harta îi spune unde.</li><li><strong>Jurnalul se scrie la final, de fiecare dată.</strong> Fără el, a doua zi o iei de la zero.</li><li><strong>Parolele și datele de card nu intră niciodată în aceste fișiere.</strong> Ele stau într-un manager de parole sau într-un fișier separat, pe care agentul nu-l citește.</li></ol>
+<h2>Cât durează</h2>
+<p>Prima variantă: o oră, cu harta, regulamentul și o singură fișă (domeniul care te costă cele mai multe ore; testul gratuit „Unde pierde firma ta ore” îți spune care e). Restul se adaugă pe măsură ce agentul primește sarcini noi.</p>
+<p>Marian Cristian Marin · automatizare cu AI pentru firme</p>
+    <div class="more">
+      <strong>Nu știi cu ce domeniu să începi?</strong>
+      <p style="margin:6px 0 12px">Testul gratuit de 2 minute îți arată unde pierde firma ta cele mai multe ore pe săptămână.</p>
+      <a class="btn g" href="scan.html">Fă testul</a>
+    </div>
+  </main>
+  <footer><div class="c">
+    <a href="index.html">Pagina principală</a><a href="privacy.html">Politică de confidențialitate</a><a href="terms.html">Termeni și condiții</a>
+    <p style="margin-top:10px">© 2026 Entertain Show Events SRL · CUI 34485580 · Șos. Pantelimon nr. 144, Sector 2, București</p>
+  </div></footer>
+</body>
+</html>
