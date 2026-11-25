@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unde pierde firma ta ore în fiecare săptămână - test gratuit de 2 minute</title>
+  <meta name="description" content="Răspunzi la 8 întrebări despre cereri, oferte, rapoarte și documente și vezi cele 3 locuri în care firma ta pierde cele mai multe ore pe săptămână, cu costul lor estimat în lei pe lună. Gratuit, fără email." />
+  <link rel="canonical" href="https://mariancmarin.github.io/automatizareAI/scan.html" />
+  <meta property="og:title" content="Unde pierde firma ta ore în fiecare săptămână" />
+  <meta property="og:description" content="Test gratuit de aproximativ 2 minute. Fără email, calculul se face în browserul tău." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mariancmarin.github.io/automatizareAI/scan.html" />
+  <link href="fonts.css" rel="stylesheet" />
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg-primary: #0A0E1A; --bg-secondary: #111827; --bg-card: #131C2E;
+  --accent-blue: #3B82F6; --accent-green: #10B981; --accent-amber: #F59E0B;
+  --text-primary: #F9FAFB; --text-secondary: #9CA3AF;
+  --border: #1F2937; --border-light: #243044;
+  --font-main: 'Inter', 'Segoe UI', Arial, sans-serif; --font-mono: 'JetBrains Mono', Consolas, monospace;
+  --radius: 12px; --radius-sm: 8px;
+}
+html { scroll-behavior: smooth; }
+body { background-color: var(--bg-primary); color: var(--text-primary); font-family: var(--font-main); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent-blue); }
+.container { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+.mono { font-family: var(--font-mono); letter-spacing: 0.04em; }
+.nav { border-bottom: 1px solid var(--border); background: rgba(10,14,26,0.95); }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+.nav__logo { font-weight: 700; color: var(--text-primary); text-decoration: none; }
+.nav__back { color: var(--text-secondary); font-size: 0.85rem; text-decoration: none; }
+.nav__back:hover { color: var(--text-primary); }
+.hero { padding: 48px 0 24px; }
+.tag { display: inline-block; background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25); border-radius: 100px; padding: 4px 14px; color: var(--accent-blue); font-size: 0.75rem; margin-bottom: 18px; }
+h1 { font-size: clamp(1.8rem, 5.5vw, 2.6rem); font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 16px; }
+.lead { color: var(--text-secondary); font-size: 1.05rem; max-width: 620px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; color: var(--text-secondary); font-size: 0.85rem; }
+.facts span::before { content: "\2713"; color: var(--accent-green); margin-right: 6px; }
+form { margin: 28px 0 8px; display: flex; flex-direction: column; gap: 14px; }
+.q { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 18px 18px 16px; }
+.q label { display: block; font-weight: 600; margin-bottom: 4px; }
+.q .hint { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 10px; }
+.q .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.q input[type=number] { width: 120px; background: var(--bg-primary); color: var(--text-primary); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 10px 12px; font: 600 1.05rem var(--font-mono); }
+.q input[type=number]:focus { outline: 2px solid var(--accent-blue); outline-offset: 1px; }
+.q .unit { color: var(--text-secondary); font-size: 0.9rem; }
+.q-num { font-family: var(--font-mono); color: var(--accent-blue); font-size: 0.75rem; display: block; margin-bottom: 6px; }
+.helper { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; background: rgba(59,130,246,0.06); border: 1px dashed var(--border-light); border-radius: var(--radius); padding: 14px 16px; color: var(--text-secondary); font-size: 0.9rem; }
+.helper input { width: 80px; background: var(--bg-primary); color: var(--text-primary); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 8px 10px; font: 600 1rem var(--font-mono); }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 26px; border-radius: var(--radius-sm); font: 600 1rem var(--font-main); cursor: pointer; border: none; text-decoration: none; }
+.btn--primary { background: var(--accent-blue); color: #fff; }
+.btn--primary:hover { background: #2563EB; }
+.btn--ghost { background: transparent; color: var(--text-primary); border: 1px solid var(--border-light); padding: 9px 14px; font-size: 0.9rem; }
+.btn--ghost:hover { border-color: var(--accent-blue); }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 6px; }
+.err { color: #FCA5A5; font-size: 0.9rem; min-height: 1.2em; }
+#rezultat { display: none; margin: 28px 0 12px; }
+#rezultat.on { display: block; }
+.estimare { display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber); border: 1px solid rgba(245,158,11,0.4); border-radius: 6px; padding: 2px 8px; margin-bottom: 12px; }
+.total { background: var(--bg-card); border: 1px solid var(--accent-blue); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+.total .big { font-family: var(--font-mono); font-size: clamp(1.8rem, 7vw, 2.6rem); font-weight: 500; color: var(--text-primary); line-height: 1.1; }
+.total .sub { color: var(--text-secondary); margin-top: 6px; }
+.pain { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 18px; margin-bottom: 12px; }
+.pain h3 { font-size: 1.05rem; margin-bottom: 10px; display: flex; gap: 10px; align-items: baseline; }
+.pain h3 .n { font-family: var(--font-mono); color: var(--accent-blue); }
+.pain .nums { display: flex; flex-wrap: wrap; gap: 6px 22px; font-family: var(--font-mono); font-size: 0.95rem; margin-bottom: 8px; }
+.pain .nums b { color: var(--text-primary); font-weight: 500; }
+.pain p { color: var(--text-secondary); font-size: 0.92rem; }
+.bar { height: 8px; border-radius: 4px; background: rgba(249,250,251,0.1); margin: 4px 0 12px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--accent-blue); }
+.next { margin-top: 18px; background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.3); border-radius: var(--radius); padding: 18px; }
+.next h3 { font-size: 1.02rem; margin-bottom: 6px; }
+.next p { color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 12px; }
+.how { margin: 36px 0; color: var(--text-secondary); font-size: 0.9rem; }
+.how h2 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 10px; }
+.how table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.85rem; }
+.how th, .how td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.how th { color: var(--text-primary); font-weight: 600; }
+.how td.r { font-family: var(--font-mono); white-space: nowrap; }
+.how-wrap { overflow-x: auto; }
+.footer { padding: 36px 0 28px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 0.8rem; }
+.footer a { color: var(--text-secondary); }
+.footer .links { display: flex; gap: 18px; flex-wrap: wrap; margin: 8px 0 14px; }
+.footer .legal { color: rgba(156,163,175,0.6); font-size: 0.72rem; font-family: var(--font-mono); }
+.footer .anpc { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 16px; }
+.footer .anpc img { height: 48px; width: auto; background: #fff; border-radius: 8px; padding: 5px 10px; }
+@media (max-width: 480px) { .q input[type=number] { width: 100px; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a class="nav__logo" href="index.html">Marian Cristian Marin</a>
+      <a class="nav__back" href="index.html">Pagina principală</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <span class="tag mono">Test gratuit · aproximativ 2 minute</span>
+      <h1>Unde pierde firma ta ore în fiecare săptămână</h1>
+      <p class="lead">Scrie câte cereri, oferte, rapoarte și documente treceți prin mână într-o săptămână obișnuită. La final vezi cele 3 locuri unde se duc cele mai multe ore și cât te costă ele pe lună.</p>
+      <div class="facts"><span>fără email</span><span>calculul se face în browserul tău, nu se trimite nimic</span><span>8 întrebări</span></div>
+    </section>
+
+    <noscript><p class="err">Testul are nevoie de JavaScript ca să facă socoteala. Tabelul cu coeficienți de mai jos merge și fără.</p></noscript>
+
+    <div class="helper">
+      <span>Nu știi cifrele pe de rost? Câți oameni lucrează în firmă, cu tot cu tine?</span>
+      <input type="number" id="oameni" min="1" max="500" inputmode="numeric" aria-label="Numărul de oameni din firmă" />
+      <button type="button" class="btn btn--ghost" id="tipice">Pune valori tipice</button>
+    </div>
+
+    <form id="scan" novalidate>
+      <div class="q"><span class="q-num">01</span>
+        <label for="P-LEADS">Câte cereri noi primiți pe săptămână?</label>
+        <div class="hint">Din formularul de pe site, email, telefon, WhatsApp sau comentarii. Fiecare trebuie citită, notată undeva și trimisă mai departe.</div>
+        <div class="row"><input type="number" id="P-LEADS" min="0" max="5000" inputmode="numeric" /><span class="unit">cereri / săptămână</span></div></div>
+
+      <div class="q"><span class="q-num">02</span>
+        <label for="P-OFERTE">Câte oferte scrieți pe săptămână?</label>
+        <div class="hint">Oferte de preț, devize, propuneri trimise clienților.</div>
+        <div class="row"><input type="number" id="P-OFERTE" min="0" max="1000" inputmode="numeric" /><span class="unit">oferte / săptămână</span></div></div>
+
+      <div class="q"><span class="q-num">03</span>
+        <label for="P-FOLLOWUP">La câte oferte trimise reveniți cu un mesaj, pentru că omul n-a mai răspuns?</label>
+        <div class="hint">Mesajul de tipul „ați apucat să vă uitați pe ofertă?”.</div>
+        <div class="row"><input type="number" id="P-FOLLOWUP" min="0" max="1000" inputmode="numeric" /><span class="unit">reveniri / săptămână</span></div></div>
+
+      <div class="q"><span class="q-num">04</span>
+        <label for="P-FAQ">Câte întrebări care se repetă primiți pe săptămână?</label>
+        <div class="hint">Preț, program, disponibilitate, „ce include”, „cât durează”. Aceleași răspunsuri, scrise din nou.</div>
+        <div class="row"><input type="number" id="P-FAQ" min="0" max="5000" inputmode="numeric" /><span class="unit">întrebări / săptămână</span></div></div>
+
+      <div class="q"><span class="q-num">05</span>
+        <label for="P-RAPORT">Câte rapoarte faceți de mână pe săptămână?</label>
+        <div class="hint">Vânzări, activitate, situația comenzilor: date copiate din programe în Excel și aranjate.</div>
+        <div class="row"><input type="number" id="P-RAPORT" min="0" max="100" step="0.5" inputmode="decimal" /><span class="unit">rapoarte / săptămână</span></div></div>
+
+      <div class="q"><span class="q-num">06</span>
+        <label for="P-COMENZI-EMAIL">Câte comenzi venite pe email copiați de mână în Excel sau în program?</label>
+        <div class="hint">Dacă nu primiți comenzi pe email, lasă 0.</div>
+        <div class="row"><input type="number" id="P-COMENZI-EMAIL" min="0" max="5000" inputmode="numeric" /><span class="unit">comenzi / săptămână</span></div></div>
+
+      <div class="q"><span class="q-num">07</span>
+        <label for="P-PROGRAMARI">Câte programări confirmați sau reamintiți manual pe săptămână?</label>
+        <div class="hint">Telefon sau mesaj cu „vă așteptăm mâine la 10”. Dacă nu lucrați cu programări, lasă 0.</div>
+        <div class="row"><input type="number" id="P-PROGRAMARI" min="0" max="5000" inputmode="numeric" /><span class="unit">programări / săptămână</span></div></div>
+
+      <div class="q"><span class="q-num">08</span>
+        <label for="P-DOCUMENTE-CONTABILE">Pentru câți clienți sau furnizori adunați lunar facturi și documente pentru contabilitate?</label>
+        <div class="hint">Le căutați prin email, le cereți, le redenumiți, le trimiteți contabilului. Socoteala o împarte pe săptămâni.</div>
+        <div class="row"><input type="number" id="P-DOCUMENTE-CONTABILE" min="0" max="2000" inputmode="numeric" /><span class="unit">pe lună</span></div></div>
+
+      <div class="q"><span class="q-num">cost</span>
+        <label for="cost">Cât costă firma o oră de lucru administrativ?</label>
+        <div class="hint">Salariu plus taxe. Am pus 50 de lei, o valoare prudentă; schimb-o dacă la tine e alta.</div>
+        <div class="row"><input type="number" id="cost" min="10" max="1000" value="50" inputmode="numeric" /><span class="unit">lei / oră</span></div></div>
+
+      <div class="actions">
+        <button type="submit" class="btn btn--primary">Arată-mi unde se duc orele</button>
+        <span class="err" id="err" role="alert"></span>
+      </div>
+    </form>
+
+    <section id="rezultat" aria-live="polite">
+      <span class="estimare">ESTIMARE</span>
+      <div class="total">
+        <div class="big" id="tot-ore">-</div>
+        <div class="sub" id="tot-lei"></div>
+      </div>
+      <div id="dureri"></div>
+      <p class="how" style="margin:14px 0 0">Cifrele sunt o estimare: minutele pe sarcină sunt medii prudente, nu măsurate la tine. Merită să cronometrezi o săptămână una dintre sarcinile de mai sus; de obicei cifra reală iese mai mare.</p>
+      <div class="next">
+        <h3>Ce faci cu rezultatul</h3>
+        <p>Alege una singură dintre cele 3 și începe cu ea. Dacă vrei să vedem împreună cum se poate automatiza, scrie-mi pe pagina principală ce ți-a ieșit aici. Prima discuție e gratuită.</p>
+        <a class="btn btn--primary" href="index.html#contact">Scrie-mi ce ți-a ieșit</a>
+      </div>
+    </section>
+
+    <section class="how" id="cum-calculam">
+      <h2>Cum se face socoteala</h2>
+      <p>Pentru fiecare sarcină: numărul tău × minutele medii pe bucată = ore pe săptămână. Orele pe lună sunt orele pe săptămână × 4,33. Costul pe lună = ore pe lună × costul unei ore. Partea care se poate automatiza e un procent prudent din timp, pentru că o parte din muncă rămâne la om (prețul unei oferte, de exemplu, îl decizi tot tu).</p>
+      <div class="how-wrap"><table>
+        <thead><tr><th>Sarcina</th><th>Minute pe bucată</th><th>Se poate automatiza</th></tr></thead>
+        <tbody id="coef"></tbody>
+      </table></div>
+      <p>Coeficienții vin din grila pe care o folosesc la auditurile de automatizare (versiunea 0.1) și se recalibrează după primele audituri reale.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <strong style="color:var(--text-primary)">Marian Cristian Marin</strong> · <span class="mono">Automatizări AI pentru firme de servicii</span>
+      <div class="links">
+        <a href="index.html">Pagina principală</a>
+        <a href="privacy.html">Politică de confidențialitate</a>
+        <a href="terms.html">Termeni și condiții</a>
+        <a href="https://www.linkedin.com/in/marian-cristian-marin/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div>© 2026 Entertain Show Events SRL. Toate drepturile rezervate.</div>
+      <div class="legal">CUI 34485580 · Șos. Pantelimon nr. 144, Sector 2, București</div>
+      <div class="anpc">
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener"><img src="anpc.png" alt="ANPC" /></a>
+        <a href="https://consumer-redress.ec.europa.eu/index_en?prefLang=ro" target="_blank" rel="noopener"><img src="litigii.png" alt="SOL Litigii" /></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+/* Coeficienți copiați din MAO (marian-automation-os) config/scoring.json v0.1 și data/kb/procese.json,
+   citite 25.11.2026. MAO nu se modifică de aici; la o recalibrare acolo, se copiază din nou. */
+const COST_ORA_IMPLICIT = 50;
+const SAPT_PE_LUNA = 4.33;
+const PROCESE = {
+  "P-LEADS":               { nume: "Preluarea cererilor noi",                  min: 6,   auto: 85, perLuna: false, tipic: 6,
+    sfat: "Cererile intră singure într-un singur tabel, cu sursa și ce vrea omul, iar tu primești doar rezumatul." },
+  "P-OFERTE":              { nume: "Scrierea ofertelor",                       min: 35,  auto: 70, perLuna: false, tipic: 3,
+    sfat: "Agentul face ciorna ofertei din notițele tale și din lista de prețuri. Prețul final și trimiterea rămân la tine." },
+  "P-FOLLOWUP":            { nume: "Revenirile la ofertele fără răspuns",      min: 4,   auto: 80, perLuna: false, tipic: 3,
+    sfat: "Lista cu cine n-a răspuns de 3 zile apare singură, cu mesajul pregătit. Tu doar îl citești și îl trimiți." },
+  "P-FAQ":                 { nume: "Răspunsurile la întrebările care se repetă", min: 6, auto: 50, perLuna: false, tipic: 10,
+    sfat: "Răspunsurile vin dintr-o listă de fapte aprobată de tine; ce nu e în listă ajunge la tine." },
+  "P-RAPORT":              { nume: "Rapoartele făcute de mână",                min: 180, auto: 80, perLuna: false, tipic: 0.2,
+    sfat: "Datele se scot automat din programele pe care le ai deja și raportul vine gata pe email, la aceeași oră." },
+  "P-COMENZI-EMAIL":       { nume: "Comenzile copiate din email",              min: 5,   auto: 75, perLuna: false, tipic: 0,
+    sfat: "Comanda se citește din email și ajunge în tabel sau în program, cu codurile de produs verificate." },
+  "P-PROGRAMARI":          { nume: "Confirmările și reamintirile de programări", min: 3, auto: 90, perLuna: false, tipic: 0,
+    sfat: "Reamintirea pleacă singură cu o zi înainte, iar răspunsurile se notează în calendar." },
+  "P-DOCUMENTE-CONTABILE": { nume: "Adunatul facturilor și documentelor",      min: 25,  auto: 65, perLuna: true,  tipic: 0,
+    sfat: "Documentele se strâng automat într-un folder pe lună, redenumite, gata de trimis la contabil." }
+};
+const fmt1 = (x) => x.toLocaleString("ro-RO", { maximumFractionDigits: 1, minimumFractionDigits: x < 10 ? 1 : 0 });
+const fmt0 = (x) => Math.round(x).toLocaleString("ro-RO");
+const val = (id) => { const v = parseFloat(String(document.getElementById(id).value).replace(",", ".")); return isFinite(v) && v > 0 ? v : 0; };
+
+function calculeaza(valori, costOra) {
+  const rez = Object.entries(PROCESE).map(([id, p]) => {
+    const peSapt = p.perLuna ? (valori[id] || 0) / SAPT_PE_LUNA : (valori[id] || 0);
+    const oreSapt = peSapt * p.min / 60;
+    return { id, nume: p.nume, sfat: p.sfat, oreSapt, oreAutoSapt: oreSapt * p.auto / 100,
+             leiLuna: oreSapt * SAPT_PE_LUNA * costOra, auto: p.auto };
+  }).filter(r => r.oreSapt > 0).sort((a, b) => b.oreSapt - a.oreSapt);
+  const totOre = rez.reduce((s, r) => s + r.oreSapt, 0);
+  const totLei = rez.reduce((s, r) => s + r.leiLuna, 0);
+  return { top: rez.slice(0, 3), toate: rez, totOre, totLei };
+}
+
+function arata(r) {
+  document.getElementById("tot-ore").textContent = "~" + fmt1(r.totOre) + " ore pe săptămână";
+  document.getElementById("tot-lei").textContent = "Adică aproximativ " + fmt0(r.totLei) + " lei pe lună pe sarcinile de mai jos, la "
+    + fmt0(val("cost") || COST_ORA_IMPLICIT) + " lei ora.";
+  const max = r.top.length ? r.top[0].oreSapt : 1;
+  document.getElementById("dureri").innerHTML = r.top.map((d, i) => `
+    <div class="pain">
+      <h3><span class="n">${i + 1}</span>${d.nume}</h3>
+      <div class="bar"><i style="width:${Math.max(4, d.oreSapt / max * 100).toFixed(0)}%"></i></div>
+      <div class="nums"><span><b>~${fmt1(d.oreSapt)}</b> ore / săpt.</span><span><b>~${fmt0(d.leiLuna)}</b> lei / lună</span>
+        <span>din care se pot automatiza ~${fmt1(d.oreAutoSapt)} ore</span></div>
+      <p>${d.sfat}</p>
+    </div>`).join("");
+  const box = document.getElementById("rezultat");
+  box.classList.add("on");
+  box.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+document.getElementById("scan").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const valori = {};
+  Object.keys(PROCESE).forEach(id => { valori[id] = val(id); });
+  const r = calculeaza(valori, val("cost") || COST_ORA_IMPLICIT);
+  const err = document.getElementById("err");
+  if (!r.toate.length) { err.textContent = "Completează cel puțin o întrebare cu un număr mai mare ca 0."; return; }
+  err.textContent = "";
+  arata(r);
+});
+
+document.getElementById("tipice").addEventListener("click", () => {
+  const n = val("oameni");
+  if (!n) { document.getElementById("err").textContent = "Scrie întâi câți oameni lucrează în firmă."; return; }
+  Object.entries(PROCESE).forEach(([id, p]) => {
+    if (p.tipic > 0) { const v = p.tipic * n; document.getElementById(id).value = v < 1 ? Math.round(v * 2) / 2 : Math.round(v); }
+  });
+  document.getElementById("err").textContent = "Am pus valori tipice pentru " + fmt0(n) + " oameni. Înlocuiește-le cu ale tale unde le știi.";
+});
+
+document.getElementById("coef").innerHTML = Object.values(PROCESE).map(p =>
+  `<tr><td>${p.nume}</td><td class="r">${p.min} min${p.perLuna ? " / client pe lună" : ""}</td><td class="r">${p.auto}%</td></tr>`).join("");
+
+if (typeof module !== "undefined") { module.exports = { calculeaza, PROCESE }; }
+  </script>
+</body>
+</html>
